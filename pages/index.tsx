@@ -804,54 +804,61 @@ export default function Home() {
 </section>
 
       {/* Opportunities Section */}
-      <section id="opportunities" className="py-16 md:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-red-600 font-bold text-base uppercase tracking-wider">💸 L'argent qui s'envole</span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mt-4 mb-6">
-              Ce que vous perdez <span className="text-red-600">chaque mois</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Sans site web, chaque jour qui passe, vous laissez de l'argent à vos concurrents. Voici le calcul :
-            </p>
-          </div>
+<section id="opportunities" className="py-16 md:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <span className="text-red-600 font-bold text-base uppercase tracking-wider">💸 L'argent qui s'envole</span>
+      <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mt-4 mb-6">
+        Ce que vous perdez <span className="text-red-600">chaque mois</span>
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Sans site web, chaque jour qui passe, vous laissez de l'argent à vos concurrents. Voici le calcul :
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 max-w-3xl mx-auto">
-            {[
-              { icon: "💰", value: `${config.stats.revenueLost.toLocaleString()} FCFA`, label: "de ventes perdues par mois", textColor: "text-red-600", bg: "from-red-50 to-orange-50 border-red-200" },
-              { icon: "👥", value: config.stats.clientsLost, label: "clients qui ne vous trouvent pas", textColor: "text-orange-600", bg: "from-orange-50 to-yellow-50 border-orange-200" },
-              { icon: "📉", value: config.stats.salesLost, label: "ventes manquées par mois", textColor: "text-yellow-600", bg: "from-yellow-50 to-amber-50 border-yellow-200" }
-            ].map((item, index) => (
-              <div key={index} className={`bg-gradient-to-br ${item.bg} rounded-2xl p-6 text-center border-2 shadow-lg`}>
-                <div className="text-4xl mb-3">{item.icon}</div>
-                <div className={`text-2xl md:text-3xl font-extrabold ${item.textColor} mb-1`}>{item.value}</div>
-                <div className="text-gray-700 font-medium text-sm md:text-base">{item.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 rounded-3xl p-8 md:p-10 text-white text-center max-w-3xl mx-auto shadow-2xl">
-            <div className="text-5xl mb-4">⚠️</div>
-            <h3 className="text-2xl md:text-3xl font-extrabold mb-4 leading-tight">
-              En un an, c'est plus de <span className="underline decoration-white/50">{config.stats.annualLoss.toLocaleString()} FCFA</span> qui vous échappent
-            </h3>
-            <p className="text-lg mb-8 opacity-90 font-medium">
-              C'est l'équivalent d'une voiture neuve. D'un an de loyer. D'un capital pour investir.<br/>
-              <strong>Et cet argent va directement dans la poche de vos concurrents.</strong>
-            </p>
-            <a 
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-bold hover:shadow-2xl transition-all"
-            >
-              <span>💬</span>
-              Arrêter de perdre cet argent
-              <span className="text-sm bg-purple-50 px-3 py-1 rounded-full">⏱️ Réponse rapide</span>
-            </a>
-          </div>
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 max-w-3xl mx-auto">
+      {[
+        { icon: "💰", value: `${config.stats.revenueLost.toLocaleString()} FCFA`, label: "de ventes perdues par mois", textColor: "text-red-600", bg: "from-red-50 to-orange-50 border-red-200" },
+        { icon: "👥", value: config.stats.clientsLost, label: "clients qui ne vous trouvent pas", textColor: "text-orange-600", bg: "from-orange-50 to-yellow-50 border-orange-200" },
+        { icon: "📉", value: config.stats.salesLost, label: "ventes manquées par mois", textColor: "text-yellow-600", bg: "from-yellow-50 to-amber-50 border-yellow-200" }
+      ].map((item, index) => (
+        <div key={index} className={`bg-gradient-to-br ${item.bg} rounded-2xl p-6 text-center border-2 shadow-lg`}>
+          <div className="text-4xl mb-3">{item.icon}</div>
+          <div className={`text-2xl md:text-3xl font-extrabold ${item.textColor} mb-1`}>{item.value}</div>
+          <div className="text-gray-700 font-medium text-sm md:text-base">{item.label}</div>
         </div>
-      </section>
+      ))}
+    </div>
+
+    <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 rounded-3xl p-8 md:p-10 text-white text-center max-w-3xl mx-auto shadow-2xl">
+      <div className="text-5xl mb-4">⚠️</div>
+      <h3 className="text-2xl md:text-3xl font-extrabold mb-4 leading-tight">
+        En un an, c'est plus de <span className="underline decoration-white/50">{config.stats.annualLoss.toLocaleString()} FCFA</span> qui vous échappent
+      </h3>
+      <p className="text-lg mb-8 opacity-90 font-medium">
+        C'est l'équivalent d'une voiture neuve. D'un an de loyer. D'un capital pour investir.<br/>
+        <strong>Et cet argent va directement dans la poche de vos concurrents.</strong>
+      </p>
+      
+      {/* Bouton harmonisé */}
+      <a 
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-white text-purple-600 px-5 py-3.5 rounded-2xl text-base font-bold hover:shadow-2xl transition-all active:scale-95"
+      >
+        <span className="text-xl">💬</span>
+        <span className="text-left">
+          <span className="block">Arrêter de perdre cet argent</span>
+          <span className="block text-xs text-purple-400 font-normal">On en discute • Conseil gratuit • Sans engagement</span>
+        </span>
+        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-bold animate-pulse">
+          URGENT
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
 
       {/* Testimonials */}
       <section className="py-16 md:py-20 bg-white">
@@ -894,55 +901,66 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-500 text-white text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-5 py-2 rounded-full text-base font-bold mb-6">
-            🚀 Action immédiate
-          </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-            Vous avez deux options.
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto mb-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-left border border-white/20">
-              <div className="text-3xl mb-3">❌</div>
-              <h3 className="font-bold text-lg text-white mb-2">Option 1 : Ne rien faire</h3>
-              <p className="text-white/80 text-base">Continuer à perdre des clients chaque jour. Laisser vos concurrents prendre les ventes qui auraient dû être les vôtres.</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-left border border-white/20">
-              <div className="text-3xl mb-3">✅</div>
-              <h3 className="font-bold text-lg text-white mb-2">Option 2 : Prendre 5 minutes</h3>
-              <p className="text-white/80 text-base">Discuter avec moi. Voir comment un site web peut transformer votre business. Sans engagement.</p>
-            </div>
-          </div>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto font-medium">
-            <strong>La majorité des gens choisissent l'option 1.</strong> Et dans 6 mois, ils se demandent pourquoi leurs ventes n'augmentent pas. 
-            <br/><br/>
-            <strong className="text-white">Les 10% qui prennent l'option 2 ?</strong> Ce sont eux qu'on voit grandir.
-          </p>
-          <a 
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white text-purple-600 px-10 py-5 rounded-full text-xl font-bold hover:shadow-2xl transition-all mb-8"
-          >
-            <span className="text-2xl">💬</span>
-            Je prends l'option 2 — Parlons de mon business
-          </a>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            {[
-              { icon: "✅", title: "Conseil 100% gratuit", desc: "On discute de vos besoins, sans pression" },
-              { icon: "⚡", title: "Réponse en 5 minutes", desc: "Je suis disponible maintenant" },
-              { icon: "🤝", title: "Zéro engagement", desc: "Vous n'avez rien à perdre" }
-            ].map((item, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 text-white border border-white/20">
-                <div className="text-2xl mb-2">{item.icon}</div>
-                <h3 className="font-bold text-base mb-1">{item.title}</h3>
-                <p className="text-white/80 text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+<section className="py-16 md:py-20 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-500 text-white text-center">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-5 py-2 rounded-full text-base font-bold mb-6">
+      🚀 Action immédiate
+    </span>
+    <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+      Vous avez deux options.
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto mb-8">
+      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-left border border-white/20">
+        <div className="text-3xl mb-3">❌</div>
+        <h3 className="font-bold text-lg text-white mb-2">Option 1 : Ne rien faire</h3>
+        <p className="text-white/80 text-base">Continuer à perdre des clients chaque jour. Laisser vos concurrents prendre les ventes qui auraient dû être les vôtres.</p>
+      </div>
+      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-left border border-white/20">
+        <div className="text-3xl mb-3">✅</div>
+        <h3 className="font-bold text-lg text-white mb-2">Option 2 : Prendre 5 minutes</h3>
+        <p className="text-white/80 text-base">Discuter avec moi. Voir comment un site web peut transformer votre business. Sans engagement.</p>
+      </div>
+    </div>
+    <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto font-medium">
+      <strong>La majorité des gens choisissent l'option 1.</strong> Et dans 6 mois, ils se demandent pourquoi leurs ventes n'augmentent pas. 
+      <br/><br/>
+      <strong className="text-white">Les 10% qui prennent l'option 2 ?</strong> Ce sont eux qu'on voit grandir.
+    </p>
+    
+    {/* Bouton harmonisé */}
+    <div className="mb-8">
+      <a 
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-white text-purple-600 px-5 py-3.5 rounded-2xl text-base font-bold hover:shadow-2xl transition-all active:scale-95"
+      >
+        <span className="text-xl">💬</span>
+        <span className="text-left">
+          <span className="block">Je prends l'option 2 — Parlons de mon business</span>
+          <span className="block text-xs text-purple-400 font-normal">Démo gratuite • Conseil personnalisé • Sans engagement</span>
+        </span>
+        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-bold animate-pulse">
+          GRATUIT
+        </span>
+      </a>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+      {[
+        { icon: "✅", title: "Conseil 100% gratuit", desc: "On discute de vos besoins, sans pression" },
+        { icon: "⚡", title: "Réponse en 5 minutes", desc: "Je suis disponible maintenant" },
+        { icon: "🤝", title: "Zéro engagement", desc: "Vous n'avez rien à perdre" }
+      ].map((item, i) => (
+        <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 text-white border border-white/20">
+          <div className="text-2xl mb-2">{item.icon}</div>
+          <h3 className="font-bold text-base mb-1">{item.title}</h3>
+          <p className="text-white/80 text-sm">{item.desc}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
