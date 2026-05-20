@@ -61,12 +61,27 @@ export default function Home() {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setMobileMenuOpen(false);
-  };
+  // Fermer le menu immédiatement
+  setMobileMenuOpen(false);
+  
+  // Utiliser requestAnimationFrame pour être sûr que le DOM est prêt
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        // Calculer la position en tenant compte de la navbar
+        const navbarHeight = 64; // h-16 = 64px
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+};
 
   const problems: Problem[] = [
     {
@@ -454,74 +469,81 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 md:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="relative">
-              <div className="w-56 h-56 md:w-80 md:h-80 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                <img 
-                  src="/images/moi.jpeg" 
-                  alt="Abdoulaye Patawala" 
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.parentElement!.classList.add('bg-gradient-to-br', 'from-purple-400', 'via-pink-400', 'to-orange-400', 'flex', 'items-center', 'justify-center');
-                    target.parentElement!.innerHTML = '<span class="text-white text-6xl font-bold">AP</span>';
-                  }}
-                />
-              </div>
-              <div className="absolute -bottom-2 -right-2 bg-white rounded-full px-5 py-3 shadow-xl border-2 border-purple-100">
-                <span className="text-base font-bold text-purple-600">⭐ 3 ans d'expérience</span>
-              </div>
-            </div>
-
-            <div>
-              <span className="text-purple-600 font-bold text-base uppercase tracking-wider">👨‍💻 Votre futur partenaire</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4 mb-6">
-                Moi, c'est <span className="bg-gradient-to-r from-purple-600 to-orange-500 bg-clip-text text-transparent">Abdoulaye Patawala</span>
-              </h2>
-              <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                <strong>Voici la vérité :</strong> vous êtes excellent dans ce que vous faites. Vos produits sont de qualité, 
-                vos clients vous font confiance. Mais aujourd'hui, en 2026, <strong>vendre uniquement sur WhatsApp et les réseaux sociaux, 
-                c'est comme avoir une boutique sans porte.</strong>
-              </p>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Je crée des boutiques en ligne qui <strong>travaillent pour vous 24h/24</strong>, même quand vous dormez. 
-                Vos pages sociales restent actives — elles sont puissantes — mais en plus, vous avez un site web qui 
-                <strong> attire des clients que vous n'auriez jamais eus autrement</strong>.
-              </p>
-              <blockquote className="border-l-4 border-purple-500 pl-4 italic text-gray-600 mb-6 bg-white/50 py-3 px-4 rounded-r-lg text-base">
-                "Mon objectif n'est pas compliqué : <strong>vous aider à vendre plus</strong>, en gardant le contact direct 
-                avec vos clients sur WhatsApp et les réseaux. Un site web, c'est un vendeur qui ne dort jamais."
-              </blockquote>
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                {[
-                  "Service 100% personnalisé",
-                  "Paiement en plusieurs fois possible",
-                  "Support réactif 7j/7",
-                  "Formation incluse pour vous"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 bg-white/70 rounded-xl px-3 py-2">
-                    <span className="text-green-500 text-lg">✓</span>
-                    <span className="text-base text-gray-700 font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <a 
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-green-500 text-white px-6 py-4 rounded-full text-lg font-bold hover:bg-green-600 hover:shadow-2xl transition-all"
-              >
-                <span className="text-2xl">💬</span>
-                Demander une démonstration gratuite
-                <span className="text-sm bg-white/20 px-3 py-1 rounded-full">⏱️ 5 min</span>
-              </a>
-            </div>
-          </div>
+<section id="about" className="py-16 md:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+      <div className="relative">
+        <div className="w-56 h-56 md:w-80 md:h-80 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl">
+          <img 
+            src="/images/moi.jpeg" 
+            alt="Abdoulaye Patawala" 
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              target.parentElement!.classList.add('bg-gradient-to-br', 'from-purple-400', 'via-pink-400', 'to-orange-400', 'flex', 'items-center', 'justify-center');
+              target.parentElement!.innerHTML = '<span class="text-white text-6xl font-bold">AP</span>';
+            }}
+          />
         </div>
-      </section>
+        <div className="absolute -bottom-2 -right-2 bg-white rounded-full px-5 py-3 shadow-xl border-2 border-purple-100">
+          <span className="text-base font-bold text-purple-600">⭐ 3 ans d'expérience</span>
+        </div>
+      </div>
+
+      <div>
+        <span className="text-purple-600 font-bold text-base uppercase tracking-wider">👨‍💻 Votre futur partenaire</span>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4 mb-6">
+          Moi, c'est <span className="bg-gradient-to-r from-purple-600 to-orange-500 bg-clip-text text-transparent">Abdoulaye Patawala</span>
+        </h2>
+        <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+          <strong>Voici la vérité :</strong> vous êtes excellent dans ce que vous faites. Vos produits sont de qualité, 
+          vos clients vous font confiance. Mais aujourd'hui, en 2026, <strong>vendre uniquement sur WhatsApp et les réseaux sociaux, 
+          c'est comme avoir une boutique sans porte.</strong>
+        </p>
+        <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+          Je crée des boutiques en ligne qui <strong>travaillent pour vous 24h/24</strong>, même quand vous dormez. 
+          Vos pages sociales restent actives — elles sont puissantes — mais en plus, vous avez un site web qui 
+          <strong> attire des clients que vous n'auriez jamais eus autrement</strong>.
+        </p>
+        <blockquote className="border-l-4 border-purple-500 pl-4 italic text-gray-600 mb-6 bg-white/50 py-3 px-4 rounded-r-lg text-base">
+          "Mon objectif n'est pas compliqué : <strong>vous aider à vendre plus</strong>, en gardant le contact direct 
+          avec vos clients sur WhatsApp et les réseaux. Un site web, c'est un vendeur qui ne dort jamais."
+        </blockquote>
+        <div className="grid grid-cols-2 gap-3 mb-6">
+          {[
+            "Service 100% personnalisé",
+            "Paiement en plusieurs fois possible",
+            "Support réactif 7j/7",
+            "Formation incluse pour vous"
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-2 bg-white/70 rounded-xl px-3 py-2">
+              <span className="text-green-500 text-lg">✓</span>
+              <span className="text-base text-gray-700 font-medium">{item}</span>
+            </div>
+          ))}
+        </div>
+        
+        {/* Bouton démo - Plus clair et mieux dimensionné */}
+        <a 
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-green-500 text-white px-5 py-3.5 rounded-2xl text-base font-bold hover:bg-green-600 transition-all shadow-lg hover:shadow-xl active:scale-95"
+        >
+          <span className="text-xl">💬</span>
+          <span className="text-left">
+            <span className="block">Je veux voir comment ça marche</span>
+            <span className="block text-xs text-green-100 font-normal">Démo gratuite • Sans engagement • 5 min</span>
+          </span>
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-bold animate-pulse">
+            GRATUIT
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Comparison Section */}
       <section id="comparison" className="py-16 md:py-20 bg-white">
