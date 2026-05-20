@@ -257,84 +257,111 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Navbar - TOUJOURS FIXE */}
-      <nav className="fixed top-0 left-0 right-0 z-50 w-full" style={{ position: 'fixed' }}>
-        <div className={`transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-2xl' 
-            : 'bg-white/90 md:bg-white/80 backdrop-blur-sm'
-        }`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-600 to-orange-500 flex items-center justify-center shadow-md">
-                  <span className="text-white font-bold text-base">AP</span>
-                </div>
-                <span className="text-base font-bold text-gray-900 hidden sm:block">Abdoulaye Patawala</span>
-              </div>
-              
-              <div className="hidden md:flex items-center space-x-5">
-                <button onClick={() => scrollToSection('problems')} className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
-                  Problèmes
-                </button>
-                <button onClick={() => scrollToSection('about')} className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
-                  Qui suis-je ?
-                </button>
-                <button onClick={() => scrollToSection('comparison')} className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
-                  Avant/Après
-                </button>
-                <button onClick={() => scrollToSection('benefits')} className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
-                  Avantages
-                </button>
-                <button onClick={() => scrollToSection('examples')} className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
-                  Exemples
-                </button>
-                <a 
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-purple-600 to-orange-500 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:shadow-xl transition-all shadow-lg"
-                >
-                  💬 Parlons business
-                </a>
-              </div>
-
-              <button 
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 text-gray-700 text-2xl"
-              >
-                {mobileMenuOpen ? '✕' : '☰'}
-              </button>
-            </div>
+<nav className="fixed top-0 left-0 right-0 z-50 w-full" style={{ position: 'fixed' }}>
+  <div className={`transition-all duration-300 ${
+    isScrolled 
+      ? 'bg-white/95 backdrop-blur-md shadow-2xl' 
+      : 'bg-white/90 md:bg-white/80 backdrop-blur-sm'
+  }`}>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex justify-between items-center h-16">
+        <div className="flex items-center gap-2">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-600 to-orange-500 flex items-center justify-center shadow-md">
+            <span className="text-white font-bold text-base">AP</span>
           </div>
+          <span className="text-base font-bold text-gray-900">Votre boutique en ligne</span>
+        </div>
+        
+        <div className="hidden md:flex items-center space-x-5">
+          <button onClick={() => scrollToSection('problems')} className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
+            Problèmes
+          </button>
+          <button onClick={() => scrollToSection('about')} className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
+            Qui suis-je ?
+          </button>
+          <button onClick={() => scrollToSection('comparison')} className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
+            Avant/Après
+          </button>
+          <button onClick={() => scrollToSection('benefits')} className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
+            Avantages
+          </button>
+          <button onClick={() => scrollToSection('examples')} className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
+            Exemples
+          </button>
+          <a 
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-purple-600 to-orange-500 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:shadow-xl transition-all shadow-lg"
+          >
+            💬 Parlons business
+          </a>
         </div>
 
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white shadow-xl"
+        <button 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 text-gray-700 text-2xl"
+        >
+          {mobileMenuOpen ? '✕' : '☰'}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <AnimatePresence>
+    {mobileMenuOpen && (
+      <motion.div 
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: 'auto' }}
+        exit={{ opacity: 0, height: 0 }}
+        className="md:hidden bg-white shadow-xl border-t border-gray-100"
+      >
+        <div className="px-4 py-4 space-y-1">
+          <button 
+            onClick={() => scrollToSection('problems')} 
+            className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
+          >
+            🔍 Problèmes
+          </button>
+          <button 
+            onClick={() => scrollToSection('about')} 
+            className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
+          >
+            👨‍💻 Qui suis-je ?
+          </button>
+          <button 
+            onClick={() => scrollToSection('comparison')} 
+            className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
+          >
+            🔄 Avant/Après
+          </button>
+          <button 
+            onClick={() => scrollToSection('benefits')} 
+            className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
+          >
+            ⭐ Avantages
+          </button>
+          <button 
+            onClick={() => scrollToSection('examples')} 
+            className="block w-full text-left py-3 px-4 text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
+          >
+            🏪 Exemples
+          </button>
+          <div className="pt-2">
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center bg-gradient-to-r from-purple-600 to-orange-500 text-white px-4 py-3 rounded-full text-base font-bold shadow-lg"
             >
-              <div className="px-4 py-4 space-y-3">
-                <button onClick={() => scrollToSection('problems')} className="block w-full text-left py-2 text-base font-medium">🔍 Problèmes</button>
-                <button onClick={() => scrollToSection('about')} className="block w-full text-left py-2 text-base font-medium">👨‍💻 Qui suis-je ?</button>
-                <button onClick={() => scrollToSection('comparison')} className="block w-full text-left py-2 text-base font-medium">🔄 Avant/Après</button>
-                <button onClick={() => scrollToSection('benefits')} className="block w-full text-left py-2 text-base font-medium">⭐ Avantages</button>
-                <button onClick={() => scrollToSection('examples')} className="block w-full text-left py-2 text-base font-medium">🏪 Exemples</button>
-                <a 
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center bg-gradient-to-r from-purple-600 to-orange-500 text-white px-4 py-3 rounded-full text-base font-bold"
-                >
-                  💬 Parlons business
-                </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+              💬 Parlons business
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+</nav>
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 md:pt-28 md:pb-24 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
