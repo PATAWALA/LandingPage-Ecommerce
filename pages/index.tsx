@@ -567,7 +567,7 @@ export default function Home() {
               Votre site travaille <strong>pour vous</strong> chaque jour. Il attire, rassure et fait vendre. Pendant ce temps, vous faites ce que vous aimez.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             {benefits.map((benefit, index) => (
               <div key={index} className="bg-white rounded-2xl p-5 md:p-6 shadow-md hover:shadow-xl transition-all">
                 <div className="text-4xl mb-3">{benefit.icon}</div>
