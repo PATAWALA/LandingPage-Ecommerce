@@ -628,67 +628,180 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Examples Section */}
-      <section id="examples" className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-orange-600 font-bold text-base uppercase tracking-wider">👀 Regardez</span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mt-4 mb-6">
-              Ces entreprises ont déjà leur boutique en ligne. <br/>
-              <span className="text-red-600">Et la vôtre ?</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Elles ont compris qu'un site web n'est pas un luxe. C'est <strong>l'outil indispensable</strong> pour vendre plus et exister face à la concurrence.
-            </p>
-          </div>
+{/* Examples Section */}
+<section id="examples" className="py-16 md:py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <span className="text-orange-600 font-bold text-base uppercase tracking-wider">👀 Regardez</span>
+      <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mt-4 mb-6">
+        Ces entreprises ont déjà leur boutique en ligne. <br/>
+        <span className="text-red-600">Et la vôtre ?</span>
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Elles ont compris qu'un site web n'est pas un luxe. C'est <strong>l'outil indispensable</strong> pour vendre plus et exister face à la concurrence. 
+        <br/><span className="text-base text-purple-600 font-medium">👉 Cliquez sur chaque boutique pour la visiter</span>
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {exampleSites.map((site, index) => (
-              <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all border border-gray-100">
-                <div className="aspect-[4/3] bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 flex items-center justify-center relative">
-                  <div className="text-7xl">🛍️</div>
-                  <div className="absolute top-3 right-3 bg-green-500 text-white text-sm px-3 py-1.5 rounded-full font-bold">
-                    {site.status}
-                  </div>
-                </div>
-                <div className="p-5 md:p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{site.name}</h3>
-                  <p className="text-gray-500 text-base mb-2">{site.description}</p>
-                  <p className="text-sm text-purple-600 font-medium mb-4">📍 {site.location}</p>
-                  <div className="space-y-2">
-                    {site.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-2 text-sm">
-                        <span className="text-green-500">✓</span>
-                        <span className="text-gray-600">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      {/* Boutique 1 - Bijoux */}
+      <a 
+        href="https://bijoux-example.com" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100 hover:border-purple-300 hover:-translate-y-1 cursor-pointer"
+      >
+        <div className="aspect-[4/3] bg-gradient-to-br from-yellow-100 via-amber-100 to-orange-100 flex items-center justify-center relative overflow-hidden">
+          <div className="text-7xl group-hover:scale-110 transition-transform">💎</div>
+          <div className="absolute top-3 right-3 bg-green-500 text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-lg">
+            ✓ En ligne
           </div>
-
-          <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 rounded-3xl p-8 md:p-12 text-white text-center max-w-3xl mx-auto">
-            <div className="text-5xl mb-4">💡</div>
-            <h3 className="text-2xl md:text-3xl font-extrabold mb-4">
-              La seule différence entre ces entreprises et vous ?
-            </h3>
-            <p className="text-xl mb-8 opacity-90 font-medium">
-              Elles ont fait le choix d'être visibles. <strong>Elles ne sont pas meilleures que vous.</strong> 
-              Elles ont juste compris avant vous.
-            </p>
-            <a 
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-bold hover:shadow-2xl transition-all"
-            >
-              <span>💬</span>
-              Je veux la même chose pour mon business
-            </a>
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
+            <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-all bg-black/50 px-4 py-2 rounded-full">
+              Visiter la boutique →
+            </span>
           </div>
         </div>
-      </section>
+        <div className="p-5 md:p-6">
+          <h3 className="text-xl font-bold text-gray-900 mb-1">Bijouterie Élégance</h3>
+          <p className="text-gray-500 text-base mb-2">Boutique de bijoux haut de gamme</p>
+          <p className="text-sm text-purple-600 font-medium mb-4">📍 Cotonou, Bénin</p>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Catalogue de bijoux organisé</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Paiement Mobile Money</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">WhatsApp intégré</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Galerie photos pro</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      {/* Boutique 2 - Vêtements */}
+      <a 
+        href="https://vetements-example.com" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100 hover:border-purple-300 hover:-translate-y-1 cursor-pointer"
+      >
+        <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 flex items-center justify-center relative overflow-hidden">
+          <div className="text-7xl group-hover:scale-110 transition-transform">👗</div>
+          <div className="absolute top-3 right-3 bg-green-500 text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-lg">
+            ✓ En ligne
+          </div>
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
+            <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-all bg-black/50 px-4 py-2 rounded-full">
+              Visiter la boutique →
+            </span>
+          </div>
+        </div>
+        <div className="p-5 md:p-6">
+          <h3 className="text-xl font-bold text-gray-900 mb-1">Mode & Style</h3>
+          <p className="text-gray-500 text-base mb-2">Vêtements, habits et accessoires</p>
+          <p className="text-sm text-purple-600 font-medium mb-4">📍 Abidjan, Côte d'Ivoire</p>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Catalogue par catégories</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Paiement en ligne sécurisé</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Tailles et couleurs visibles</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Commandes WhatsApp rapides</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      {/* Boutique 3 - Iphones & Véhicules */}
+      <a 
+        href="https://multi-example.com" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100 hover:border-purple-300 hover:-translate-y-1 cursor-pointer"
+      >
+        <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 via-slate-200 to-gray-100 flex items-center justify-center relative overflow-hidden">
+          <div className="text-7xl group-hover:scale-110 transition-transform">📱</div>
+          <div className="absolute top-3 right-3 bg-green-500 text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-lg">
+            ✓ En ligne
+          </div>
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
+            <span className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-all bg-black/50 px-4 py-2 rounded-full">
+              Visiter la boutique →
+            </span>
+          </div>
+        </div>
+        <div className="p-5 md:p-6">
+          <h3 className="text-xl font-bold text-gray-900 mb-1">Tech & Auto Store</h3>
+          <p className="text-gray-500 text-base mb-2">Iphones, véhicules et high-tech</p>
+          <p className="text-sm text-purple-600 font-medium mb-4">📍 Dakar, Sénégal</p>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Catalogue multi-produits</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Fiches produits détaillées</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Paiement Mobile Money & CB</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-600">Contact direct vendeur</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 rounded-3xl p-8 md:p-12 text-white text-center max-w-3xl mx-auto shadow-2xl">
+      <div className="text-5xl mb-4">💡</div>
+      <h3 className="text-2xl md:text-3xl font-extrabold mb-4">
+        La seule différence entre ces entreprises et vous ?
+      </h3>
+      <p className="text-xl mb-8 opacity-90 font-medium">
+        Elles ont fait le choix d'être visibles. <strong>Elles ne sont pas meilleures que vous.</strong> 
+        Elles ont juste compris avant vous.
+      </p>
+      
+      <a 
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-white text-purple-600 px-5 py-3.5 rounded-2xl text-base font-bold hover:shadow-2xl transition-all active:scale-95"
+      >
+        <span className="text-xl">💬</span>
+        <span className="text-left">
+          <span className="block">Je veux la même chose pour mon business</span>
+          <span className="block text-xs text-purple-400 font-normal">Parlez-moi de votre projet • Sans engagement</span>
+        </span>
+        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-bold animate-pulse">
+          GRATUIT
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
 
       {/* Opportunities Section */}
       <section id="opportunities" className="py-16 md:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
