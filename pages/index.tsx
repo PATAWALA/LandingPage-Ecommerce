@@ -646,7 +646,7 @@ export default function Home() {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       {/* Boutique 1 - Bijoux */}
       <a 
-        href="https://bijoux-example.com" 
+        href="https://evinparis.com" 
         target="_blank" 
         rel="noopener noreferrer"
         className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100 hover:border-purple-300 hover:-translate-y-1 cursor-pointer"
@@ -689,7 +689,7 @@ export default function Home() {
 
       {/* Boutique 2 - Vêtements */}
       <a 
-        href="https://vetements-example.com" 
+        href="https://lynia-shop.com" 
         target="_blank" 
         rel="noopener noreferrer"
         className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100 hover:border-purple-300 hover:-translate-y-1 cursor-pointer"
@@ -732,7 +732,7 @@ export default function Home() {
 
       {/* Boutique 3 - Iphones & Véhicules */}
       <a 
-        href="https://multi-example.com" 
+        href="https://elite-eta-three.vercel.app/" 
         target="_blank" 
         rel="noopener noreferrer"
         className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100 hover:border-purple-300 hover:-translate-y-1 cursor-pointer"
